@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>Assignment</title>
+</head>
+
+<body>
+Assignment: Thomas Kickenweitz, Matrikelnumber: 0530983; Clemens Feuerstein, Matrikelnumber: 1031352; Lukas Fritz, Matrikelnumber: 1130977 <br>
+<hr/>
+<br>
+<h1><center> Order handling</center></h1>
+<h2><strong>Administration:</strong></h2>
+<a href = "view_all_customer.php">Insert, view and edit customer</a><br>
+<a href = "view_all_product.php">Insert, view and edit product</a><br>
+<a href = "view_all_provider.php">Insert, view and edit provider</a><br>
+<a href = "view_all_order.php">Insert, view and edit order</a><br>
+
+<br>
+<h2><strong>Find data:</strong></h2>
+<a href = "all_orders_from_customer.php">Find all orders from a customer.</a><br>
+<a href = "all_open_deliveries_from_provider.php">Find all open deliveries from provider X.</a><br>
+
+<br>
+<h2><strong>XML transformation with XSLT</strong></h2>
+
+<script>
+var open = function (prefix) {
+	var firstname = document.getElementById("check1").checked;
+	var open = prefix + firstname;
+	parent.location = open;
+}
+var openclient = function () {
+	var prefix = 'view_all_customers_xml.php?xml_trans=client&firstname=';
+	open(prefix);
+}
+
+var openserver = function () {
+	var prefix = 'view_all_customers_xml.php?xml_trans=server&firstname=';
+	open(prefix);
+}
+</script>
+
+<form action=#"> <h3>select if you want to view the first name of customer as well:</h3> <fieldset> <label for="check1"> <input type="checkbox" name="columns" value="firstname" id="check1"> firstname </label> </fieldset> </form>
+
+<form action="input_button.htm">
+  <p>
+    <input type="button" name="Clientside" value="Clientside"
+      onclick=JavaScript:openclient()>
+    <input type="button" name="Serverside" value="Serverside"
+      onclick=JavaScript:openserver()>
+  </p>
+</form>
+
+</body>
+</html>
